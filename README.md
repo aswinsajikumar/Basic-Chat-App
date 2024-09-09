@@ -4,8 +4,11 @@ This is a real-time chat application built using Flask (a Python web framework) 
 
 ### Features
 Real-time chat: Messages are sent and received instantly using WebSockets (Socket.IO).
+
 Database storage: All messages are stored in a PostgreSQL database so they can be retrieved later.
+
 Simple UI: A basic user interface where users can enter their username and chat messages.
+
 APIs: There are APIs to get the chat history and to send messages via HTTP requests.
 
 ### Working
