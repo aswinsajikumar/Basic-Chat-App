@@ -16,3 +16,5 @@ Users enter their username and message in the User Interface.
 Messages are sent to the server using WebSockets and broadcasted to all connected users in real-time.
 Each message is saved to the PostgreSQL database, so the chat history is stored.
 Users can retrieve the chat history using a GET request to the /messages API endpoint.
+
+* I used Pycharm as the IDE and initialized a virtual environment.
