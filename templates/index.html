@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Application</title>
+</head>
+<body>
+    <h1>Basic Chat</h1>
+    <div id="chat">
+        <div id="messages"></div>
+        <input id="username" placeholder="Enter username" autocomplete="off" />
+        <input id="message" placeholder="Enter message" autocomplete="off" />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <!-- Include Socket.IO client library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+    <script type="text/javascript">
+        var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
+
+        // Display messages from the server
+        socket.on('message', function(msg) {
+            var messagesDiv = document.getElementById('messages');
+            var newMessage = document.createElement('div');
+            newMessage.textContent = msg.username + ': ' + msg.message;
+            messagesDiv.appendChild(newMessage);
+        });
+
+        // Send a message to the server
+        function sendMessage() {
+            var username = document.getElementById('username').value;
+            var message = document.getElementById('message').value;
+            socket.send({username: username, message: message});
+            document.getElementById('message').value = '';  // Clear the input field
+        }
+    </script>
+</body>
+</html>
