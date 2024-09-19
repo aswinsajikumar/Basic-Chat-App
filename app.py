@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request, jsonify
-from flask_socketio import SocketIO, send
 from models import Message, session
+from flask_socketio import SocketIO, send
+from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mysecret'
